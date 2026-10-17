@@ -1,0 +1,11 @@
+{
+  "name": "Cada Mañana",
+  "short_name": "Cada Mañana",
+  "description": "Una palabra para comenzar el día",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fbf7ef",
+  "theme_color": "#0f4f4b",
+  "lang": "es"
+}
