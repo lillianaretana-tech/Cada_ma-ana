@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="es">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R1VGK3FRT6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-R1VGK3FRT6');
+</script>
+
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f8f2e8"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Cada Mañana">
 <link rel="manifest" href="./manifest.webmanifest"><link rel="icon" type="image/png" href="./icono-cada-manana.png"><link rel="apple-touch-icon" href="./icono-cada-manana.png"><title>Cada Mañana</title>
@@ -18,7 +27,7 @@
 <button class="section-btn" data-target="practica"><span class="ico">🌱</span><span><strong>5. Para practicar hoy</strong><small>Un paso sencillo para aplicar</small></span><span class="arrow">›</span></button><div class="panel" id="practica"></div>
 <button class="section-btn" data-target="llevar"><span class="ico">☀️</span><span><strong>6. Me llevo esta palabra</strong><small>Una frase para recordar</small></span><span class="arrow">›</span></button><div class="panel" id="llevar"></div></div>
 <section class="library"><h3>📖 Tu libro de Cada Mañana</h3><p>Cada día se suma una nueva página. Desliza para descubrir lecturas anteriores o toca una para abrirla.</p><div class="pages" id="pages"></div><div class="swipehint">← desliza las páginas →</div></section>
-<div class="bottom-grid"><section class="feature"><h3>Necesito una palabra</h3><p>Encuentra una lectura para lo que estás viviendo.</p><div class="chips" id="chips"></div><div class="word-results" id="wordResults"></div></section><section class="feature"><h3>Llévala contigo</h3><p>Instala Cada Mañana en tu teléfono y ábrela como una app.</p><div class="installbox"><button class="install" id="install">📱 Instalar Cada Mañana</button><span id="installHelp" style="font:12px Arial,sans-serif;color:#687674">En Android puedes instalarla desde el menú del navegador.</span></div></section></div></div><footer>Cada Mañana · V2.4 · ☀️<br><span style="font-size:11px;letter-spacing:.04em">Creado por LillyTech · Costa Rica</span></footer></main>
+<div class="bottom-grid"><section class="feature"><h3>Necesito una palabra</h3><p>Encuentra una lectura para lo que estás viviendo.</p><div class="chips" id="chips"></div><div class="word-results" id="wordResults"></div></section><section class="feature"><h3>Llévala contigo</h3><p>Instala Cada Mañana en tu teléfono y ábrela como una app.</p><div class="installbox"><button class="install" id="install">📱 Instalar Cada Mañana</button><span id="installHelp" style="font:12px Arial,sans-serif;color:#687674">En Android puedes instalarla desde el menú del navegador.</span></div></section></div></div><footer>Cada Mañana · V2.5 · ☀️<br><span style="font-size:11px;letter-spacing:.04em">Creado por LillyTech · Costa Rica</span></footer></main>
 <script>
 const URL='https://lszjnrjgbhsfrdvhhfvg.supabase.co',KEY='sb_publishable_TDfU5a0wYh5FG0_87_LdYw_YNpZLXqS';let readings=[],idx=0,current=null,deferredPrompt=null;const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 async function api(q=''){const r=await fetch(URL+'/rest/v1/lecturas?'+q,{headers:{apikey:KEY}});if(!r.ok)throw Error('No fue posible cargar las lecturas.');return r.json()}
