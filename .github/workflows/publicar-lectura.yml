@@ -1,0 +1,30 @@
+name: Publicar lectura preparada de Cada Mañana
+on:
+  schedule:
+    # 03:10 UTC = 21:10 del día anterior en Costa Rica
+    - cron: '10 3 * * *'
+  workflow_dispatch:
+    inputs:
+      target_date:
+        description: 'Fecha objetivo YYYY-MM-DD (vacío = mañana en Costa Rica)'
+        required: false
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: cada-manana-publicacion
+  cancel-in-progress: false
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Publicar sin sobrescribir
+        env:
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          TARGET_DATE: ${{ inputs.target_date }}
+        run: python scripts/publicar_lectura.py
